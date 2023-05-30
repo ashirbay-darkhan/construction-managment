@@ -5,7 +5,8 @@ import Dashboard from '../Dashboard';
 import Sidebar from "../Sidebar";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Today from "../Today";
-import Inbox from "../Inbox";
+import Week from "../Week";
+import Chat from "../Chat";
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(null);
@@ -18,11 +19,12 @@ const App = () => {
     <>
       {isAuthenticated ? (
         <BrowserRouter>
-          <Sidebar />
+          <Sidebar setIsAuthenticated={setIsAuthenticated} />
           <Routes>
-            <Route path="/" element={<Dashboard setIsAuthenticated={setIsAuthenticated} />}></Route>
+            <Route path="/" element={<Dashboard />}></Route>
             <Route path="/today" element={<Today />}></Route>
-            <Route path="/inbox" element={<Inbox />}></Route>
+            <Route path="/week" element={<Week />}></Route>
+            <Route path="/chat" element={<Chat />}></Route>
           </Routes>
         </BrowserRouter>
       ) : (

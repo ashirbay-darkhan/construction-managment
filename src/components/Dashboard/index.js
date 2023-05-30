@@ -9,7 +9,7 @@ import Edit from './Edit';
 import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
 import {db} from "../../config/firestore";
 
-const Dashboard = ({ setIsAuthenticated }) => {
+const Dashboard = () => {
   const [employees, setEmployees] = useState();
   const [selectedEmployee, setSelectedEmployee] = useState(null);
   const [isAdding, setIsAdding] = useState(false);
@@ -61,12 +61,11 @@ const Dashboard = ({ setIsAuthenticated }) => {
   };
 
   return (
-    <div className="p-4 sm:ml-64">
+    <div className="p-4 mt-12 sm:ml-64">
       {!isAdding && !isEditing && (
         <>
           <Header
             setIsAdding={setIsAdding}
-            setIsAuthenticated={setIsAuthenticated}
           />
           <Table
             employees={employees}
