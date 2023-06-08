@@ -25,6 +25,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.containerWrap {
+  @apply container mx-auto max-w-4xl
+}
 
 html {
   line-height: 1.15;

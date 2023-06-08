@@ -2,11 +2,15 @@ import React from 'react';
 import Swal from 'sweetalert2';
 
 import { getAuth, signOut } from "firebase/auth";
+import {UserAuth} from "../../context/AuthContext";
 
 const Logout = ({ setIsAuthenticated }) => {
+  const {currentUser, logout} = UserAuth()
+
 
   const handleLogout = () => {
     const auth = getAuth();
+    logout()
     signOut(auth).then(() => {
       Swal.fire({
         icon: 'question',
